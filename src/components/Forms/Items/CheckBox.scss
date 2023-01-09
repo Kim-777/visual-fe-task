@@ -1,0 +1,43 @@
+.checkbox_wrapper {
+  display: flex;
+  align-items: center;
+
+  & > span {
+    margin-right: 8px;
+  }
+  
+}
+
+
+.check_circle_wrapper {
+  background-color: white;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  border: 1px solid grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+
+  
+
+
+  & .check_circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background-color: grey;
+    transition: all 0.2s ease;
+  }
+
+  &.active {
+    border: 1px solid blue;
+
+    & .check_circle {
+      background-color: blue;
+    }
+  }
+
+  
+}

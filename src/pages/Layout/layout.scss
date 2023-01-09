@@ -1,22 +1,32 @@
 .layout_wrapper {
-  background-color: yellow;
+  background-color: white;
+  min-height: 100vh;
 }
 
-.nav_wrapper, .contents_wrapper {
-  max-width: 1000px;
+
+.contents_wrapper {
+  padding-block: 20px;
+  max-width: 90%;
+  width: 1000px;
   margin: 0 auto;
   background-color: beige;
 }
 
 .nav_wrapper {
   height: 73px;
+  border-bottom: 1px solid rgb(200, 200, 200);
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 
 
   & > ul {
+    max-width: 90%;
+    width: 1000px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
+
     gap: 10px;
 
     & > li {

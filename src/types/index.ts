@@ -4,10 +4,12 @@ export type Product = {
   description: string;
   price: number;
   isDiscount: boolean;
-  discountRate: number;
+  discountRate?: number;
   createdBy: number;
   createdAt: string;
   lastEditAt: string;
   colors: string[];
   images: string[];
 };
+
+export type CreateProduct = Omit<Product, "id" | "createdAt" | "lastEditAt">;
