@@ -3,3 +3,34 @@
   display: flex;
   flex-direction: column;
 }
+
+.product_create_form_method_btns_wrapper {
+  display: flex;
+  margin-block: 32px;
+  align-items: center;
+  justify-content: end;
+
+  & > button {
+    padding: 8px;
+    min-width: 120px;
+    border-radius: 12px;
+
+    &:first-child {
+      margin-right: 12px;
+      background-color: rgb(140, 140, 255);
+      color: white;
+      border: 1px solid rgb(140, 140, 255);
+      transition: all 0.1s ease;
+
+      &:disabled {
+        border: 1px solid rgb(146, 146, 146);
+        background-color: rgb(146, 146, 146);
+        cursor: not-allowed;
+      }
+    }
+
+    &:last-child {
+      border: 1px solid rgb(146, 146, 146);
+    }
+  }
+}

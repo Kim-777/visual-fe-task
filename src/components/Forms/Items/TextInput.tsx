@@ -8,6 +8,7 @@ type Props = {
   formKey: string;
   placeholder: string;
   isAvailableOnlyNumber?: boolean;
+  isEssential?: boolean;
 };
 
 const TextInput = ({
@@ -17,6 +18,7 @@ const TextInput = ({
   formKey,
   placeholder,
   isAvailableOnlyNumber,
+  isEssential,
 }: Props) => {
   const inputId = useId();
 
@@ -24,7 +26,10 @@ const TextInput = ({
 
   return (
     <div className="text_input_wrapper">
-      <label htmlFor={inputId}>{title}</label>
+      <label htmlFor={inputId}>
+        {title}
+        {isEssential && <em style={{ color: "red" }}> *</em>}
+      </label>
       <input
         id={inputId}
         type="text"

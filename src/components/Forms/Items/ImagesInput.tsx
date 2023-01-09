@@ -17,7 +17,9 @@ const ImagesInput = ({
 
   return (
     <div className="images_input_wrapper">
-      <label>상품 이미지 (최대 9개 추가 가능)</label>
+      <label>
+        상품 이미지 (최대 9개 추가 가능)<em style={{ color: "red" }}> *</em>
+      </label>
       <div className="btn_wrapper">
         <button
           type="button"

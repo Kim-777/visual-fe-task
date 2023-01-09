@@ -36,14 +36,24 @@ const ProductCreateForm = () => {
   console.log("form :::: ", form);
   // console.log("form.isDiscount ::::", form.isDiscount);
 
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+
+    console.log("form ::::: ", form);
+  };
+
+  const cantSubmit =
+    !form.name || !form.description || !form.price || !images.length;
+
   return (
-    <form className="product_form_wrapper">
+    <form className="product_form_wrapper" onSubmit={handleSubmit}>
       <TextInput
         title="상품명"
         value={form.name}
         onChange={handleTextInputChange}
         formKey="name"
         placeholder="상품명을 입력하세요"
+        isEssential
       />
 
       <TextInput
@@ -52,6 +62,7 @@ const ProductCreateForm = () => {
         onChange={handleTextInputChange}
         formKey="description"
         placeholder="설명을 입력하세요"
+        isEssential
       />
 
       <TextInput
@@ -61,9 +72,10 @@ const ProductCreateForm = () => {
         formKey="price"
         placeholder="가격을 입력하세요(숫자만)"
         isAvailableOnlyNumber
+        isEssential
       />
 
-      <div>
+      <div style={{ marginTop: "20px" }}>
         <CheckBox
           checked={form.isDiscount}
           onChange={(checked) => {
@@ -102,9 +114,11 @@ const ProductCreateForm = () => {
         addImages={addImages}
         deleteImage={deleteImage}
       />
-      <div>
-        <button>확인</button>
-        <button>취소</button>
+      <div className="product_create_form_method_btns_wrapper">
+        <button disabled={cantSubmit} type="submit">
+          확인
+        </button>
+        <button type="button">취소</button>
       </div>
     </form>
   );
