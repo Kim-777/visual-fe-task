@@ -1,0 +1,36 @@
+.layout_wrapper {
+  background-color: yellow;
+}
+
+.nav_wrapper, .contents_wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: beige;
+}
+
+.nav_wrapper {
+  height: 73px;
+  display: flex;
+  align-items: center;
+
+
+  & > ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    & > li {
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 22px;
+      letter-spacing: -0.5px;
+      color: rgb(155, 155, 155);
+
+      & > a.active {
+        color: black;
+        text-decoration: underline;
+      }
+    }
+  }
+
+}
