@@ -32,10 +32,10 @@
   }
 
   &.active {
-    border: 1px solid blue;
+    border: 1px solid rgb(140, 140, 255);
 
     & .check_circle {
-      background-color: blue;
+      background-color: rgb(140, 140, 255);
     }
   }
 

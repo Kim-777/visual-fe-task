@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
 
+& .btn_wrapper {
+  display: flex;
+  align-items: center;
+
   & .images_input_btn {
     width: 140px;
     height: 30px;
@@ -14,13 +18,29 @@
     transition: all 0.2s ease;
     font-weight: 700;
     margin-block: 20px;
+    transition: all 0.1ms ease;
+
+    &:disabled {
+      background-color: gray;
+      border-color: gray;
+      cursor: not-allowed;
+    }
   }
+
+  & > span {
+    margin-left: 12px;
+    font-weight: 600;
+    font-size: 14px
+  }
+}
+
+
 }
 
 .images_list_wrapper {
   display: flex;
   flex-wrap: wrap;
-
+  gap: 12px;
 }
 
 .images_input_img_wrapper {

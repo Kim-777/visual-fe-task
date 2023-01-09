@@ -9,8 +9,6 @@ const ImagesInput = ({
   addImages,
   deleteImage,
 }: ReturnType<typeof useImages>) => {
-  console.log("images ::: ", images);
-
   const accept = useMemo(
     () =>
       `${imageExtensions.JPG},${imageExtensions.PNG},${imageExtensions.GIF},${imageExtensions.BMP}`,
@@ -19,25 +17,31 @@ const ImagesInput = ({
 
   return (
     <div className="images_input_wrapper">
-      <label>상품 이미지 (최대 5개 추가 가능)</label>
-      <button
-        type="button"
-        className="images_input_btn"
-        onClick={() => {
-          console.log("inputRef.current :::: ", inputRef.current);
-          inputRef.current?.click();
-        }}
-      >
-        이미지 추가하기
-      </button>
+      <label>상품 이미지 (최대 9개 추가 가능)</label>
+      <div className="btn_wrapper">
+        <button
+          type="button"
+          className="images_input_btn"
+          disabled={images.length >= 9}
+          onClick={() => {
+            if (images.length >= 9) return;
+            inputRef.current?.click();
+          }}
+        >
+          이미지 추가하기
+        </button>
+        {images.length === 0 && <span>1 - 9개의 이미지를 등록해주세요.</span>}
+      </div>
+
       <input
         type="file"
         className="fileInput"
         title="파일추가"
-        multiple
+        // multiple
         hidden
         // style={{ visibility: "hidden" }}
         accept={accept}
+        maxLength={5}
         onChange={addImages}
         ref={inputRef}
       />
