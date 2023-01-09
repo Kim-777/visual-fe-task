@@ -1,9 +1,12 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { CreateProduct, Product } from "src/types";
 import CheckBox from "./Items/CheckBox";
 import ColorsInput from "./Items/ColorsInput";
 import TextInput from "./Items/TextInput";
+import { useImages } from "src/hooks/useImages";
 import "./ProductForm.scss";
+import ImagesInput from "./Items/ImagesInput";
+import { imageExtensions } from "src/constants";
 
 type Props = {
   onSubmit: () => {};
@@ -11,15 +14,16 @@ type Props = {
 };
 
 const ProductCreateForm = () => {
-  const [form, setForm] = useState<CreateProduct>({
+  const [form, setForm] = useState<Omit<CreateProduct, "images">>({
     name: "",
     description: "",
     price: "",
     isDiscount: false,
     createdBy: 1,
     colors: [],
-    images: [],
   });
+
+  const { images, inputRef, addImages, deleteImage } = useImages();
 
   const handleTextInputChange = useCallback(
     (formKey: string, value: string) => {
@@ -91,6 +95,12 @@ const ProductCreateForm = () => {
             colors: prev.colors.filter((item) => item !== color),
           }));
         }}
+      />
+      <ImagesInput
+        images={images}
+        inputRef={inputRef}
+        addImages={addImages}
+        deleteImage={deleteImage}
       />
       <div>
         <button>확인</button>

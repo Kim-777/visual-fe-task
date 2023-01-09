@@ -1,0 +1,57 @@
+.images_input_wrapper {
+  display: flex;
+  flex-direction: column;
+
+  & .images_input_btn {
+    width: 140px;
+    height: 30px;
+    border: 1px solid rgb(140, 140, 255);
+    padding-block: 4px;
+    padding-inline: 8px;
+    background-color: rgb(140, 140, 255);
+    border-radius: 8px;
+    color: white;
+    transition: all 0.2s ease;
+    font-weight: 700;
+    margin-block: 20px;
+  }
+}
+
+.images_list_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.images_input_img_wrapper {
+  display: flex;
+  padding: 8px;
+  margin-right: 16px;
+  border-radius: 8px;
+  border: 1px solid rgb(255, 241, 207);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+  & > ul {
+    display: flex;
+    margin-left: 16px;
+    flex-direction: column;
+    & > li {
+      margin-bottom: 4px;
+      &:last-child {
+        margin-bottom: 0px;
+        display: flex;
+        align-items: flex-end;
+        flex: 1;
+        text-align: end;
+        justify-content: end;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.img {
+  width: 100px;
+  height: 100px;
+  object-fit:contain;
+}
