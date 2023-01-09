@@ -7,6 +7,7 @@ import Layout from "./pages/Layout";
 import Products from "./pages/Products";
 import Detail from "./pages/Detail";
 import Create from "./pages/Create";
+import { ModalFrameProvider } from "./Contexts/ModalFrameContext";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ModalFrameProvider>
+      <RouterProvider router={router} />
+    </ModalFrameProvider>
   </React.StrictMode>
 );
 
