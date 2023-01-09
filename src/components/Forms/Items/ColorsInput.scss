@@ -1,11 +1,28 @@
+.color_input_wrapper {
+  padding-block: 20px;
+  display: flex;
+  flex-direction: column;
+
+  & > label {
+    padding-block: 8px;
+  }
+}
+
 .colors_wrapper {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   align-items: center;
+
+  & > input {
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid rgb(183, 183, 183);
+  }
 }
 
 .color_wrapper {
+  
   display: flex;
   align-items: center;
   padding-block: 4px;
@@ -13,8 +30,28 @@
   background-color: white;
   border-radius: 8px;
   border: 1px solid rgb(183, 183, 183);
+  height: 30px;
 
   & > span {
     margin-right: 8px;
   }
+}
+
+.add_btn {
+  height: 30px;
+  border: 1px solid blue;
+  padding-block: 4px;
+  padding-inline: 8px;
+  background-color: blue;
+  border-radius: 8px;
+  color: white;
+  transition: all 0.2s ease;
+  font-weight: 700;
+
+  &:disabled {
+    background-color: rgb(151, 151, 151);
+    border: 1px solid rgb(151, 151, 151);
+    color: white;
+  }
+
 }

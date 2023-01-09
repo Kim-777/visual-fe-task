@@ -1,0 +1,11 @@
+.text_input_wrapper {
+  padding-block: 10px;
+  display: flex;
+  flex-direction: column;
+
+  & > input {
+    margin-block: 12px;
+    max-width: 350px;
+    height: 30px;
+  }
+}
