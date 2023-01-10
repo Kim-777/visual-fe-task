@@ -6,6 +6,11 @@
   max-width: 500px;
   display: flex;
 
+  & > img {
+    // box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+  }
+
   & > ul {
     // cursor: pointer;
     margin-left: 20px;

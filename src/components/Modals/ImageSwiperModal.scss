@@ -1,0 +1,39 @@
+.image_swiper_modal_wrapper {
+  max-width: 550px;
+  // max-height: 550px;
+  width: 90%;
+  display: flex;
+
+  flex-direction: column;
+  position: relative;
+  background-color: white;
+
+  & > button {
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px;
+  }
+
+  .image_swiper_wrapper {
+    padding-block: 40px;
+
+    .swiper_slide_wrapper {
+      display: flex;
+      width: 100%;
+      min-width: 550px;
+      min-height: 550px;
+      
+      justify-content: center;
+      align-items: center;
+
+      & > img {
+        max-width: 550px;
+        max-height: 550px;
+        object-fit: contain;
+      }
+    }
+  }
+}

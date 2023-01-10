@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useModal } from "src/context/ModalFrameContext";
 import { Product } from "src/types";
+import ImageSwiperModal from "../Modals/ImageSwiperModal";
 import "./ProductListItem.scss";
 
 type Props = Product & {
@@ -23,7 +25,7 @@ const ProductListItem = ({
   onDelete,
   onEdit,
 }: Props) => {
-  const navigate = useNavigate();
+  const { closeModal, setModal } = useModal();
 
   const realPrice = isDiscount
     ? Math.floor(Number(price) * ((100 - Number(discountRate)) / 100))
@@ -31,7 +33,16 @@ const ProductListItem = ({
 
   return (
     <article className="main_product_list_item_wrapper">
-      {images?.[0].img && <img src={images[0].img} width={100} height={100} />}
+      {images?.[0].img && (
+        <img
+          onClick={() => {
+            setModal(<ImageSwiperModal images={images} />);
+          }}
+          src={images[0].img}
+          width={100}
+          height={100}
+        />
+      )}
       <ul>
         <li>{name}</li>
         <li>{description}</li>
