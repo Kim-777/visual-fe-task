@@ -5,7 +5,7 @@ import { CreateProduct, ListReturn, Product } from "src/types";
 let productId = 6;
 const waitFn = (time?: number) =>
   new Promise((resolve) => {
-    setTimeout(() => resolve(true), time ?? 2000);
+    setTimeout(() => resolve(true), time ?? 1000);
   });
 const Limit = 5;
 
@@ -53,7 +53,7 @@ export const modifyProduct = async (product: Product) => {
     });
   }
 
-  await waitFn(3000);
+  await waitFn(1000);
 
   return true;
 };
