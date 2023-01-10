@@ -1,0 +1,18 @@
+.product_modify_modal_wrapper {
+  background-color: white;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  max-width: 750px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  max-height: 95%;
+  overflow-y: scroll;
+
+
+  .btns_wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}

@@ -7,8 +7,9 @@ export type FileWithId = {
   size: number;
 };
 
+let imageId = 11;
+
 export const useImages = (defaultImages?: FileWithId[]) => {
-  const imageId = useRef(1);
   const [images, setImages] = useState<FileWithId[]>(defaultImages || []);
   const inputRef = useRef<HTMLInputElement>(null);
   const deleteImage = useCallback((id: string) => {
@@ -24,7 +25,7 @@ export const useImages = (defaultImages?: FileWithId[]) => {
       const fileArray = Array.from(event.target.files!);
 
       const filesToAdd = fileArray.map((file) => ({
-        id: `temporary-${++imageId.current}`,
+        id: `temporary-${++imageId}`,
         name: file.name,
         size: file.size,
         img: URL.createObjectURL(file),

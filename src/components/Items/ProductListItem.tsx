@@ -5,7 +5,7 @@ import "./ProductListItem.scss";
 
 type Props = Product & {
   onDelete: (id: number) => void;
-  onEdit: (id: number) => void;
+  onEdit: (id: Product) => void;
 };
 
 const ProductListItem = ({
@@ -65,7 +65,19 @@ const ProductListItem = ({
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                onEdit(id);
+                onEdit({
+                  images,
+                  id,
+                  name,
+                  description,
+                  price,
+                  isDiscount,
+                  discountRate,
+                  createdAt,
+                  lastEditAt,
+                  createdBy,
+                  colors,
+                });
               }}
             >
               수정

@@ -1,10 +1,12 @@
 import { useInfiniteQuery, useMutation } from "@tanstack/react-query";
 import React, { useCallback } from "react";
-import { deleteProduct, getProducts } from "src/apis";
+import { deleteProduct, getProducts, modifyProduct } from "src/apis";
 import ProductListItem from "src/components/Items/ProductListItem";
 import ConfirmModal from "src/components/Modals/ConfirmModal";
+import ProductModifyModal from "src/components/Modals/ProductModifyModal";
 import { useModal } from "src/Contexts/ModalFrameContext";
 import useIntersectionObserver from "src/hooks/useIntersectionObserver";
+import { Product } from "src/types";
 import "./products.scss";
 
 const Products = () => {
@@ -37,6 +39,15 @@ const Products = () => {
     onError() {},
   });
 
+  const modifyMutation = useMutation({
+    mutationFn: modifyProduct,
+    onSuccess() {
+      productsInfiniteQuery.refetch();
+      closeModal();
+    },
+    onError() {},
+  });
+
   const onDelete = useCallback((id: number) => {
     setModal(
       <ConfirmModal
@@ -49,8 +60,16 @@ const Products = () => {
     );
   }, []);
 
-  const onEdit = useCallback((id: number) => {
-    console.log("edit!");
+  const onEdit = useCallback((product: Product) => {
+    setModal(
+      <ProductModifyModal
+        product={product}
+        onSave={async (product) => {
+          await modifyMutation.mutateAsync(product);
+        }}
+        onCancel={closeModal}
+      />
+    );
   }, []);
 
   useIntersectionObserver({

@@ -41,7 +41,22 @@ export const createProduct = async (product: CreateProduct) => {
   return newProduct;
 };
 
-export const modifyProduct = async () => {};
+export const modifyProduct = async (product: Product) => {
+  const foundIndex = DEFAULT_PRODUCTS_MOCK.findIndex(
+    (item) => item.id === product.id
+  );
+
+  if (foundIndex > -1) {
+    DEFAULT_PRODUCTS_MOCK.splice(foundIndex, 1, {
+      ...product,
+      lastEditAt: dayjs().format("YYYY. MM. DD"),
+    });
+  }
+
+  await waitFn(3000);
+
+  return true;
+};
 
 export const deleteProduct = async (id: number) => {
   const foundIndex = DEFAULT_PRODUCTS_MOCK.findIndex((item) => item.id === id);
