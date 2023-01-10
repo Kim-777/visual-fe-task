@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createProduct } from "src/apis";
 import ProductForm from "src/components/Forms/ProductCreateForm";
 import ConfirmModal from "src/components/Modals/ConfirmModal";
-import { useModal } from "src/Contexts/ModalFrameContext";
+import { useModal } from "src/context/ModalFrameContext";
 
 const Create = () => {
   const { closeModal, setModal } = useModal();

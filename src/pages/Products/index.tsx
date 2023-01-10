@@ -4,7 +4,7 @@ import { deleteProduct, getProducts, modifyProduct } from "src/apis";
 import ProductListItem from "src/components/Items/ProductListItem";
 import ConfirmModal from "src/components/Modals/ConfirmModal";
 import ProductModifyModal from "src/components/Modals/ProductModifyModal";
-import { useModal } from "src/Contexts/ModalFrameContext";
+import { useModal } from "src/context/ModalFrameContext";
 import useIntersectionObserver from "src/hooks/useIntersectionObserver";
 import { Product } from "src/types";
 import "./products.scss";

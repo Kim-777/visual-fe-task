@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import Layout from "./pages/Layout";
 import Products from "./pages/Products";
 import Create from "./pages/Create";
-import { ModalFrameProvider } from "./Contexts/ModalFrameContext";
+import { ModalFrameProvider } from "./context/ModalFrameContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
