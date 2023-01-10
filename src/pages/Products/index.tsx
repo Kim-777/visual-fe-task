@@ -1,6 +1,6 @@
 import React from "react";
-import ComfirmModal from "src/components/Modals/ComfirmModal";
-import { useModal } from "src/contexts/ModalFrameContext";
+import ConfirmModal from "src/components/Modals/ConfirmModal";
+import { useModal } from "src/Contexts/ModalFrameContext";
 
 const Products = () => {
   const onOk = () => {};
@@ -13,7 +13,7 @@ const Products = () => {
       <button
         onClick={() => {
           setModal(
-            <ComfirmModal onOk={onOk} onCancel={closeModal} title="hi" />
+            <ConfirmModal onOk={onOk} onCancel={closeModal} title="hi" />
           );
         }}
       >

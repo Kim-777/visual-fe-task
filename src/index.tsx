@@ -7,7 +7,7 @@ import Layout from "./pages/Layout";
 import Products from "./pages/Products";
 import Detail from "./pages/Detail";
 import Create from "./pages/Create";
-import { ModalFrameProvider } from "./contexts/ModalFrameContext";
+import { ModalFrameProvider } from "./Contexts/ModalFrameContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
