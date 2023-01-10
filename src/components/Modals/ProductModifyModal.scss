@@ -15,5 +15,13 @@
     justify-content: flex-end;
     align-items: center;
     
+    & > .ok_button {
+      transition: all 0.2s ease;
+      &:disabled {
+        cursor: not-allowed;
+        background-color: grey;
+        color: white;
+      }
+    }
   }
 }

@@ -56,11 +56,11 @@ export const DEFAULT_PRODUCTS_MOCK: Product[] = [
     price: "1000",
     isDiscount: true,
     discountRate: "10",
-    createdBy: 1,
+    createdBy: 2,
     createdAt: "2022. 12. 31",
     colors: [],
     images: [
-      { id: "1", img: "/images/default_4.jpeg", name: "귀걸이", size: 30 },
+      { id: "1", img: "/images/default_4.jpeg", name: "목걸이", size: 60000 },
     ],
   },
   {
@@ -70,11 +70,13 @@ export const DEFAULT_PRODUCTS_MOCK: Product[] = [
     price: "1000",
     isDiscount: true,
     discountRate: "10",
-    createdBy: 2,
+    createdBy: 1,
     createdAt: "2022. 12. 25",
     colors: [],
     images: [
-      { id: "1", img: "/images/default_1.jpeg", name: "귀걸이", size: 30 },
+      { id: "1", img: "/images/default_5.jpeg", name: "목걸이", size: 30000 },
+      { id: "2", img: "/images/default_6.jpeg", name: "목걸이_2", size: 30000 },
+      { id: "3", img: "/images/default_7.jpeg", name: "금반지", size: 30000 },
     ],
   },
 ];

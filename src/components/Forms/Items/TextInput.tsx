@@ -9,6 +9,7 @@ type Props = {
   placeholder: string;
   isAvailableOnlyNumber?: boolean;
   isEssential?: boolean;
+  maxNum?: number;
 };
 
 const TextInput = ({
@@ -19,6 +20,7 @@ const TextInput = ({
   placeholder,
   isAvailableOnlyNumber,
   isEssential,
+  maxNum,
 }: Props) => {
   const inputId = useId();
 
@@ -37,7 +39,11 @@ const TextInput = ({
         placeholder={placeholder}
         onChange={(e) => {
           if (isAvailableOnlyNumber) {
-            onChange(formKey, (e.target.value || "").replace(/[^0-9]/g, ""));
+            const num = (e.target.value || "").replace(/[^0-9]/g, "");
+            if (maxNum && Number(num) > maxNum) {
+              return;
+            }
+            onChange(formKey, num);
             return;
           }
           onChange(formKey, e.target.value);

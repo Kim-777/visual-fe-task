@@ -39,7 +39,11 @@ const ProductCreateForm = ({ onSubmit, isCreating }: Props) => {
   };
 
   const cantSubmit =
-    !form.name || !form.description || !form.price || !images.length;
+    !form.name ||
+    !form.description ||
+    !form.price ||
+    !images.length ||
+    (form.isDiscount && (!form.discountRate || form.discountRate === "0"));
 
   return (
     <form className="product_form_wrapper" onSubmit={handleSubmit}>
@@ -76,7 +80,11 @@ const ProductCreateForm = ({ onSubmit, isCreating }: Props) => {
           <CheckBox
             checked={form.isDiscount}
             onChange={(checked) => {
-              setForm((prev) => ({ ...prev, isDiscount: checked }));
+              setForm((prev) => ({
+                ...prev,
+                discountRate: "",
+                isDiscount: checked,
+              }));
             }}
           />
         </div>
@@ -86,8 +94,10 @@ const ProductCreateForm = ({ onSubmit, isCreating }: Props) => {
             value={form.discountRate || ""}
             onChange={handleTextInputChange}
             formKey="discountRate"
-            placeholder="할인율을 입력하세요(숫자만)"
+            placeholder="할인율을 입력하세요(1~99의 숫자)"
+            isEssential
             isAvailableOnlyNumber
+            maxNum={99}
           />
         )}
 

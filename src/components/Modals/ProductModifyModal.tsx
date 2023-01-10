@@ -36,6 +36,14 @@ const ProductModifyModal = ({ product, onSave, onCancel }: Props) => {
     setIsSaving(false);
   };
 
+  const cantSubmit =
+    !modifiedProduct.name ||
+    !modifiedProduct.description ||
+    !modifiedProduct.price ||
+    !images.length ||
+    (modifiedProduct.isDiscount &&
+      (!modifiedProduct.discountRate || modifiedProduct.discountRate === "0"));
+
   return (
     <div className="product_modify_modal_wrapper">
       <form onSubmit={onSubmit}>
@@ -74,6 +82,7 @@ const ProductModifyModal = ({ product, onSave, onCancel }: Props) => {
               onChange={(checked) => {
                 setModifiedProduct((prev) => ({
                   ...prev,
+                  discountRate: "",
                   isDiscount: checked,
                 }));
               }}
@@ -85,8 +94,10 @@ const ProductModifyModal = ({ product, onSave, onCancel }: Props) => {
               value={modifiedProduct.discountRate || ""}
               onChange={handleTextInputChange}
               formKey="discountRate"
-              placeholder="할인율을 입력하세요(숫자만)"
+              placeholder="할인율을 입력하세요(1~99의 숫자)"
               isAvailableOnlyNumber
+              isEssential
+              maxNum={99}
             />
           )}
 
@@ -122,7 +133,7 @@ const ProductModifyModal = ({ product, onSave, onCancel }: Props) => {
             취소
           </button>
 
-          <button type="submit" className="ok_button">
+          <button disabled={cantSubmit} type="submit" className="ok_button">
             저장
           </button>
         </div>
