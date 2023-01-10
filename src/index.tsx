@@ -7,7 +7,17 @@ import Layout from "./pages/Layout";
 import Products from "./pages/Products";
 import Detail from "./pages/Detail";
 import Create from "./pages/Create";
-import { ModalFrameProvider } from "./Contexts/ModalFrameContext";
+import { ModalFrameProvider } from "./contexts/ModalFrameContext";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 
 const router = createBrowserRouter([
   {
@@ -26,9 +36,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ModalFrameProvider>
-      <RouterProvider router={router} />
-    </ModalFrameProvider>
+    <QueryClientProvider client={queryClient}>
+      <ModalFrameProvider>
+        <RouterProvider router={router} />
+      </ModalFrameProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
 

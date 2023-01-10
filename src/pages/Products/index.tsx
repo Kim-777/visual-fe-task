@@ -1,6 +1,6 @@
 import React from "react";
 import ComfirmModal from "src/components/Modals/ComfirmModal";
-import { useModal } from "src/Contexts/ModalFrameContext";
+import { useModal } from "src/contexts/ModalFrameContext";
 
 const Products = () => {
   const onOk = () => {};
