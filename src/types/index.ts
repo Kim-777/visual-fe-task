@@ -14,4 +14,10 @@ export type Product = {
   images: FileWithId[];
 };
 
+export type ListReturn<T> = {
+  isNext: boolean;
+  pageNow: number;
+  data: T[];
+};
+
 export type CreateProduct = Omit<Product, "id" | "createdAt" | "lastEditAt">;

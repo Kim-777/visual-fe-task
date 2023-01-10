@@ -1,12 +1,11 @@
-import React, { useCallback, useMemo, useState } from "react";
-import { CreateProduct, Product } from "src/types";
+import React, { useCallback, useState } from "react";
+import { CreateProduct } from "src/types";
 import CheckBox from "./Items/CheckBox";
 import ColorsInput from "./Items/ColorsInput";
 import TextInput from "./Items/TextInput";
 import { useImages } from "src/hooks/useImages";
 import "./ProductForm.scss";
 import ImagesInput from "./Items/ImagesInput";
-import { imageExtensions } from "src/constants";
 
 type Props = {
   onSubmit: (product: CreateProduct) => void;
@@ -28,20 +27,15 @@ const ProductCreateForm = ({ onSubmit, isCreating }: Props) => {
 
   const handleTextInputChange = useCallback(
     (formKey: string, value: string) => {
-      // console.log("value :::: ", value);
-      console.log("key ::: ", formKey);
       setForm((prev) => ({ ...prev, [formKey]: value }));
     },
     []
   );
-  console.log("form :::: ", form);
-  // console.log("form.isDiscount ::::", form.isDiscount);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
     onSubmit({ ...form, images });
-    console.log("form ::::: ", form);
   };
 
   const cantSubmit =

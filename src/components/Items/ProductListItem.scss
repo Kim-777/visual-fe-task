@@ -1,0 +1,38 @@
+.main_product_list_item_wrapper {
+  margin-bottom: 20px;
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  max-width: 500px;
+  display: flex;
+
+  & > ul {
+    cursor: pointer;
+    margin-left: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    & > li {
+      margin-bottom: 8px;  
+      color: rgb(53, 53, 53);
+      font-size: 14px;
+
+      &.method_btns {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+
+        & > button {
+          font-weight:600;
+        }
+
+        & > button:first-child {
+          color: rgb(98, 0, 240);
+          margin-right: 12px;
+        }
+      }
+    }
+  }
+}
