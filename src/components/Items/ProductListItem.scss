@@ -7,7 +7,7 @@
   display: flex;
 
   & > ul {
-    cursor: pointer;
+    // cursor: pointer;
     margin-left: 20px;
     width: 100%;
     display: flex;
@@ -26,6 +26,7 @@
 
         & > button {
           font-weight:600;
+          padding: 4px;
         }
 
         & > button:first-child {

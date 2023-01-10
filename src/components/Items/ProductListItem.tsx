@@ -30,13 +30,7 @@ const ProductListItem = ({
     : price;
 
   return (
-    <article
-      onClick={() => {
-        console.log("onClick");
-        navigate(`/products/${id}`);
-      }}
-      className="main_product_list_item_wrapper"
-    >
+    <article className="main_product_list_item_wrapper">
       {images?.[0].img && <img src={images[0].img} width={100} height={100} />}
       <ul>
         <li>{name}</li>

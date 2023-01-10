@@ -16,7 +16,7 @@ const Create = () => {
         <ConfirmModal
           onOk={() => {
             closeModal();
-            navigate("/products");
+            navigate("/");
           }}
           title="상품이 등록되었습니다."
           isJustOkBtn

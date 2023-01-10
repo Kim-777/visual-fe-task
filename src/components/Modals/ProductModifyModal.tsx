@@ -36,8 +36,6 @@ const ProductModifyModal = ({ product, onSave, onCancel }: Props) => {
     setIsSaving(false);
   };
 
-  console.log("isSaving :::: ", isSaving);
-
   return (
     <div className="product_modify_modal_wrapper">
       <form onSubmit={onSubmit}>

@@ -9,7 +9,7 @@ const Layout = () => {
         <ul>
           <li>
             <NavLink
-              to="products"
+              to="/"
               className={({ isActive }) => (isActive ? "active" : undefined)}
               end
             >

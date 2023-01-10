@@ -5,7 +5,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import Layout from "./pages/Layout";
 import Products from "./pages/Products";
-import Detail from "./pages/Detail";
 import Create from "./pages/Create";
 import { ModalFrameProvider } from "./Contexts/ModalFrameContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -24,8 +23,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { path: "products", element: <Products /> },
-      { path: "products/:productId", element: <Detail /> },
+      { path: "/", element: <Products /> },
       { path: "products/create", element: <Create /> },
     ],
   },
